@@ -39,8 +39,8 @@ public class Level1 {
 
         if (rezult > 50) {
             return win1;
-        } else {
-            return win2;
         }
+
+        return win2;
     }
 }
