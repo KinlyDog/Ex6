@@ -33,11 +33,11 @@ public class Level1 {
             }
         }
 
-        double rezult = max / sum * 100 * 1000;
-        double rezTmp = Math.round(rezult);
-        rezult = rezTmp / 1000;
+        double votingResult = max / sum * 100 * 1000;
+        double rezTmp = Math.round(votingResult);
+        votingResult = rezTmp / 1000;
 
-        if (rezult > 50) {
+        if (votingResult > 50) {
             return win1;
         }
 
