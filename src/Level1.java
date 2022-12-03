@@ -5,18 +5,18 @@ public class Level1 {
         }
 
         int[] ma = new int[n];
-        double sum = 0;
+        double sumOfAllVotes = 0;
 
         for (int i = 0; i < n; i++) {
             ma[i] = votes[i];
-            sum += votes[i];
+            sumOfAllVotes += votes[i];
         }
 
-        double max = 0;
+        double maxVotesPerPerson = 0;
         int num = 0;
         for (int i = 0; i < n; i++) {
-            if (ma[i] > max) {
-                max = ma[i];
+            if (ma[i] > maxVotesPerPerson) {
+                maxVotesPerPerson = ma[i];
                 num = i;
             }
         }
@@ -28,12 +28,12 @@ public class Level1 {
         String win3 = "no winner";
 
         for (int i : ma) {
-            if (i == max) {
+            if (i == maxVotesPerPerson) {
                 return win3;
             }
         }
 
-        double votingResult = max / sum * 100 * 1000;
+        double votingResult = maxVotesPerPerson / sumOfAllVotes * 100 * 1000;
         double rezTmp = Math.round(votingResult);
         votingResult = rezTmp / 1000;
 
