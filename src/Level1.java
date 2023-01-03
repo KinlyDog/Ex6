@@ -6,7 +6,6 @@ public class Level1 {
             return "majority winner 1";
         }
 
-
         int[] ma = new int[n];
         double sumOfAllVotes = 0;
 
@@ -36,6 +35,7 @@ public class Level1 {
             }
         }
 
+        assert (sumOfAllVotes != 0);
         double votingResult = maxVotesPerPerson / sumOfAllVotes * 100 * 1000;
         double rezTmp = Math.round(votingResult);
         votingResult = rezTmp / 1000;
