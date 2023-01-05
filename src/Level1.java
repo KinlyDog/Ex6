@@ -1,40 +1,40 @@
-import javax.imageio.stream.ImageInputStream;
-
 public class Level1 {
     public static String MassVote(int n, int[] votes) {
         if (n == 1) {
             return "majority winner 1";
         }
 
-        int[] ma = new int[n];
+        int[] ballot = new int[n];
         double sumOfAllVotes = 0;
 
         for (int i = 0; i < n; i++) {
-            ma[i] = votes[i];
+            ballot[i] = votes[i];
             sumOfAllVotes += votes[i];
         }
 
         double maxVotesPerPerson = 0;
-        int num = 0;
+        int winner = 0;
         for (int i = 0; i < n; i++) {
-            if (ma[i] > maxVotesPerPerson) {
-                maxVotesPerPerson = ma[i];
-                num = i;
+            if (ballot[i] > maxVotesPerPerson) {
+                maxVotesPerPerson = ballot[i];
+                winner = i;
             }
         }
 
-        ma[num] = 0;
+        ballot[winner] = 0;
 
-        String win1 = "majority winner " + (num + 1);
-        String win2 = "minority winner " + (num + 1);
+        String win1 = "majority winner " + (winner + 1);
+        String win2 = "minority winner " + (winner + 1);
         String win3 = "no winner";
 
-        for (int i : ma) {
+        // проверка наличия кандидата с таким же максимальным количеством голосов
+        for (int i : ballot) {
             if (i == maxVotesPerPerson) {
                 return win3;
             }
         }
 
+        // вычисляем процент голосов за победителя с точностью до 3 знаков
         assert (sumOfAllVotes != 0);
         double votingResult = maxVotesPerPerson / sumOfAllVotes * 100 * 1000;
         double rezTmp = Math.round(votingResult);
